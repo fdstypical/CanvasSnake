@@ -4,12 +4,38 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" href="style.css" type="text/css">
-</head>
-<body>
 
+	<script>
+		function checkKey (e) {
+			e = e || event;
+			if(e.keyCode === 38 || e.keyCode === 40){
+				e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+			}
+			
+		}
+	</script>
+
+</head>
+<body onkeydown="checkKey(event)">
+	
+	<button id="start">Start game</button>
 
 	<span id="game-point">Ваш счет: 0</span>
+
 	<canvas id="canvas" width="1280" height="720"></canvas>
+
+	<button id='map-changer'>Открыть редактор карт</button>
+
+	<div id="game-changer-wrap">
+		
+		<h1>Добро пожаловать в редактор карт для игры змейка!</h1>
+		<p>Здесь вы можете редактировать карту как вам угодно, добавляя новые препятствия для змейки!</p>
+
+		<canvas id="canvas-map-changer" width="1280" height="720"></canvas>
+
+		<button id="save">Сохранить изменения</button>
+
+	</div>
 
 	<script src="script.js"></script>
 </body>
